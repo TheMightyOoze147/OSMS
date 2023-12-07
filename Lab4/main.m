@@ -1,5 +1,5 @@
-lfsr1 = [0, 1, 0, 1, 0];
-lfsr2 = [1, 0, 0, 0, 1];
+lfsr1 = [0, 1, 0, 1, 0]; %10
+lfsr2 = [1, 0, 0, 0, 1]; %17
 numBits = 10;
 goldCode = zeros(1, numBits);
 tableData = zeros(10, 12);

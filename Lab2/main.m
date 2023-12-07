@@ -62,9 +62,9 @@ fi = 45;
 kd = 19 - 15 * (hBS/1000 - delta_h)/delta_h; %hBS <= delta_h
 
 kf = -4 + 0.7 * ((f_MHz/925)-1);
-LLOS = 42.6 + 20 * log10(f_MHz) + 26 * log10(d);
-L0 = 32.44 + 20 * log10(f_MHz) + 20 * log10(d/1000);
-L1 = L1_1 + ka + kd * log10(d) + kf * log10(f_MHz) - 9 * log10(b);
+LLOS = 42.6 + 20 * log10(f_MHz) + 26 * log10(d/1000);
+L0 = 32.44 + 20 * log10(f_MHz) + 20 * log10(d);
+L1 = L1_1 + ka + kd * log10(d/1000) + kf * log10(f_MHz) - 9 * log10(b);
 L2 = -16.9 - 10 * log10(w) + 10 * log10(f_MHz) + 20 * log10(delta_h/1000 - hms/1000) - 10 + 0.354 * fi;
 
 L3 = L1 + L2;

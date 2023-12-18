@@ -114,16 +114,18 @@ int main() {
     int errors_detected = 0, errors_not_detected = 0;
     
     for (int i = 0; i < big_data_rx.size(); i++) {
+        int flag = 0;
         std::vector<int> copy_big_data_rx;
         std::copy_if(big_data_rx.begin(), big_data_rx.end(), std::back_inserter(copy_big_data_rx), [](int i){ return true; });
         copy_big_data_rx[i] = -1;
         std::vector<int> copy_big_CRC_rx = CRC(copy_big_data_rx);
-        for (auto &i : copy_big_CRC_rx) {
-            if (i != 0) {
-                errors_detected++;
+        for (auto &j : copy_big_CRC_rx) {
+            if (j != 0) {
+                flag++;
             }
-            else errors_not_detected++;
         }
+        if (flag != 0) errors_detected++;
+        else errors_not_detected++;
     }
     std::cout << std::endl << "\nОшибок обнаружено: " << errors_detected << std::endl << "\nОшибок не обнаружено: " << errors_not_detected;
 }
